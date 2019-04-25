@@ -1,0 +1,98 @@
+<!DOCTYPE html><html lang="zh-Hans"><head><meta name="generator" content="Hexo 3.8.0"><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta name="description" content="计算机网络"><meta name="keywords" content="计算机网络"><meta name="author" content="董兰天"><meta name="copyright" content="董兰天"><title>计算机网络 | 董兰天的江湖路</title><link rel="shortcut icon" href="/melody-favicon.ico"><link rel="stylesheet" href="/css/index.css?version=1.6.1"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@latest/css/font-awesome.min.css?version=1.6.1"><link rel="dns-prefetch" href="https://cdn.staticfile.org"><link rel="dns-prefetch" href="https://cdn.bootcss.com"><link rel="dns-prefetch" href="https://creativecommons.org"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  }
+} </script></head><body><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true"></i><div id="sidebar"><div class="toggle-sidebar-info text-center"><span data-toggle="切换文章详情">切换站点概览</span><hr></div><div class="sidebar-toc"><div class="sidebar-toc__title">目录</div><div class="sidebar-toc__progress"><span class="progress-notice">你已经读了</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar"></div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#9-HTTP中get和post的区别"><span class="toc-number">1.</span> <span class="toc-text">9.HTTP中get和post的区别</span></a></li></ol></div></div><div class="author-info hide"><div class="author-info__avatar text-center"><img src="/img/avatar.png"></div><div class="author-info__name text-center">董兰天</div><div class="author-info__description text-center"></div><hr><div class="author-info-articles"><a class="author-info-articles__archives article-meta" href="/archives"><span class="pull-left">文章</span><span class="pull-right">10</span></a><a class="author-info-articles__tags article-meta" href="/tags"><span class="pull-left">标签</span><span class="pull-right">13</span></a><a class="author-info-articles__categories article-meta" href="/categories"><span class="pull-left">分类</span><span class="pull-right">2</span></a></div></div></div><div id="content-outer"><div class="no-bg" id="top-container"><div id="page-header"><span class="pull-left"> <a id="site-name" href="/">董兰天的江湖路</a></span><i class="fa fa-bars toggle-menu pull-right" aria-hidden="true"></i><span class="pull-right menus"><a class="site-page" href="/">我的主页</a><a class="site-page" href="/categories">文章分类</a><a class="site-page" href="/archives">时间轴</a><a class="site-page" href="/tags">好多标签呀</a></span></div><div id="post-info"><div id="post-title">计算机网络</div><div id="post-meta"><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2019-04-25</time><span class="post-meta__separator">|</span><i class="fa fa-inbox post-meta__icon" aria-hidden="true"></i><a class="post-meta__categories" href="/categories/面试基础知识总结/">面试基础知识总结</a></div></div></div><div class="layout" id="content-inner"><article id="post"><div class="article-container" id="post-content"><p><a href="https://blog.csdn.net/justloveyou_/article/details/78303617" target="_blank" rel="noopener">https://blog.csdn.net/justloveyou_/article/details/78303617</a></p>
+<p><a href="https://www.imooc.com/article/48819" target="_blank" rel="noopener">https://www.imooc.com/article/48819</a></p>
+<p>##1.计算机网络分为哪几层？</p>
+<p><img src="images\捕5获.PNG" alt></p>
+<ol>
+<li><p>应用层</p>
+<p>应用进程之间通信</p>
+<p><strong>应用层的任务是通过应用进程间的交互来完成特定网络应用。</strong>应用层协议定义的是应用进程（进程：主机中正在运行的程序）间的通信和交互的规则。对于不同的网络应用需要不同的应用层协议。在互联网中应用层协议很多，如<strong>域名系统DNS</strong>，支持万维网应用的<strong>HTTP协议</strong>，支持电子邮件的<strong>SMTP协议</strong>等等。我们把应用层交互的数据单元称为报文。</p>
+</li>
+<li><p>运输层</p>
+<p>为应用进程之间提供==端到端==的逻辑通信</p>
+</li>
+<li><p>网络层</p>
+<p><strong>网络层负责为分组交换网上的不同主机提供通信服务。</strong>在发送数据时，网络层把运输层产生的报文段或用户数据报封装成分组和包进行传送。在TCP/IP体系结构中，由于网络层使用<strong>IP协议</strong>，因此分组也叫<strong>IP数据报</strong>，简称<strong>数据报</strong>。</p>
+</li>
+<li><p>数据链路层</p>
+<p>数据链路层将网络层交下来的IP数据报组装程帧，在两个相邻节点间的链路上传送帧。</p>
+</li>
+<li><p>物理层</p>
+<p>在物理层上所传送的数据单位是比特。<br>物理层的作用是实现相邻计算机节点之间比特流的透明传送，尽可能屏蔽掉具体传输介质和物理设备的差异。</p>
+</li>
+</ol>
+<p>##2.TCP和UDP</p>
+<p>区别：</p>
+<ol>
+<li>TCP是面向连接的，UDP是无连接的；</li>
+<li>TCP是可靠的，UDP是不可靠的；</li>
+<li>TCP只支持点对点通信，UDP支持一对一、一对多、多对一、多对多的通信模式；</li>
+<li>TCP是面向字节流的，UDP是面向报文的；</li>
+<li>TCP有拥塞控制机制;UDP没有拥塞控制，适合媒体通信；</li>
+<li>TCP首部开销(20个字节)比UDP的首部开销(8个字节)要大；</li>
+</ol>
+<ul>
+<li>使用TCP的应用层协议：SMTP、TELNET、==HTTP==、FTP</li>
+<li>使用UDP的应用层协议：TFTP、RIP、DHCP、SNMP、IGMP</li>
+</ul>
+<p>​        所以如果我们的发送消息之类的场景，因为你要确保用户的消息不会丢失，需要使用TCP协议。如果你是在进行视频聊天或者看直播，那你可以使用UDP协议，因为即使几个画面丢失了，对用户来说影响也不是很大。</p>
+<p>##3.TCP的拥塞处理</p>
+<p>==使用滑动窗口进行流量控制==</p>
+<p>==使用如下几个方法进行拥塞控制：==</p>
+<p>1). 慢启动：不要一开始就发送大量的数据，先探测一下网络的拥塞程度，也就是说由小到大逐渐增加拥塞窗口的大小;</p>
+<p>2). 拥塞避免：拥塞避免算法让拥塞窗口缓慢增长，即每经过一个往返时间RTT就把发送方的拥塞窗口cwnd加1，而不是加倍，这样拥塞窗口按线性规律缓慢增长。　　　　　　　　　</p>
+<p>3). 快重传：快重传要求接收方在收到一个 失序的报文段 后就立即发出 重复确认（为的是使发送方及早知道有报文段没有到达对方）而不要等到自己发送数据时捎带确认。快重传算法规定，发送方只要一连收到三个重复确认就应当立即重传对方尚未收到的报文段，而不必继续等待设置的重传计时器时间到期。　　　　　　　　　</p>
+<p>4). 快恢复：快重传配合使用的还有快恢复算法，当发送方连续收到三个重复确认时，就执行“乘法减小”算法，把ssthresh门限减半，但是接下去并不执行慢开始算法：因为如果网络出现拥塞的话就不会收到好几个重复的确认，所以发送方现在认为网络可能没有出现拥塞。所以此时不执行慢开始算法，而是将cwnd设置为ssthresh的大小，然后执行拥塞避免算法。</p>
+<p>##4.TCP三次握手四次挥手</p>
+<ul>
+<li>为什么TCP链接需要三次握手，两次不可以么，为什么？</li>
+</ul>
+<p>　　为了==防止已失效的链接请求报文突然又传送到了服务端==，因而产生错误。</p>
+<p>​    当客户端发出的连接请求后，如果报文并未丢失，而是在某个网络节点长时间滞留了，以致延误到客户端的连接释放以后的某个时间才到达Server。这是，Server误以为这是Client发出的一个新的链接请求，于是就向客户端发送确认数据包，同意建立链接。若不采用“三次握手”，那么只要Server发出确认数据包，新的链接就建立了。由于client此时并未发出建立链接的请求，所以其不会理睬Server的确认，也不与Server通信；而这时Server一直在等待Client的请求，这样Server就白白浪费了一定的资源。</p>
+<p>##5.输入域名访问一个网站过程<br>​    (1). 获取域名对应的IP地址：具体过程包括浏览器搜索自身的DNS缓存、搜索操作系统的DNS缓存、读取本地的Host文件和向本地DNS服务器进行查询等。</p>
+<p>　　(2). 浏览器获得域名对应的IP地址以后，浏览器向服务器请求建立链接，发起三次握手；</p>
+<p>　　(3). TCP/IP链接建立起来后，浏览器向服务器发送HTTP请求；</p>
+<p>　　(4). 服务器接收到这个请求，并根据路径参数映射到特定的请求处理器进行处理，并将处理结果及相应的视图返回给浏览器；</p>
+<p>　　(5). 浏览器解析并渲染视图，若遇到对js文件、css文件及图片等静态资源的引用，则重复上述步骤并向服务器请求这些资源；</p>
+<p>​    (6). 浏览器根据其请求到的资源、数据渲染页面，最终向用户呈现一个完整的页面。</p>
+<p>这个问题是比较开放的，你可以回答的内容有很多，但是你如果回答得越详细肯定是越好的。第一步就是域名解析，域名解析的话你可以说一下域名缓存在哪些地方，然后如果你域名在本地没有缓存的话，是如何通过DNS来进行域名解析的，如果你的DNS服务器上没有保存那个域名，那你的DNS服务器将如何处理来得到这个域名的ip。第二步就是说一下TCP连接的三次握手的过程。其他拓展内容有很多可以说，看你知识储备。例如你可以说通过CDN来进行访问加速。也可以说目前网站基本上都是前后端分离的，访问的时候会先访问反向代理服务器进行负载均衡之类的      </p>
+<p>##6.HTTP和HTTPS</p>
+<p>https是在http上面套了一层ssl，用来实现安全连接。用到的密钥有对称密钥和非对称密钥。</p>
+<p> HTTPS和HTTP的区别：</p>
+<ol>
+<li>https协议需要到ca申请证书，一般免费证书很少，需要交费。</li>
+<li>http是超文本传输协议，信息是明文传输，https 则是具有安全性的ssl加密传输协议。</li>
+<li>http和https使用的是完全不同的连接方式用的端口也不一样，前者是80，后者是443。</li>
+<li>http的连接很简单，是无状态的。</li>
+<li>HTTPS协议是由SSL+HTTP协议构建的可进行加密传输、身份认证的网络协议，要比http协议安全。   </li>
+</ol>
+<p>##7.什么是socket？<br>​    socket是用来进行网络通信的，java里面已经有封装好这个类了，分为客户端和服务器，通过ip+端口来进行访问。如果没有用过socket的话，建议你到网上找一个demo，跟着写一下，你基本上就知道socket怎么用了，算是比较简单的。      </p>
+<p>##8.BIO、NIO与AIO</p>
+<p>​    一：同步阻塞IO（BIO）</p>
+<p>​        我们熟知的Socket编程就是BIO，一个socket连接一个处理线程（这个线程负责这个Socket连接的一系列数据传输操作）。阻塞的原因在于：操作系统允许的线程数量是有限的，多个socket申请与服务端建立连接时，服务端不能提供相应数量的处理线程，没有分配到处理线程的连接就会阻塞等待或被拒绝。</p>
+<p>​         二：同步非阻塞IO（NIO）</p>
+<p>​         Non-blocked IO是对BIO的改进，基于Reactor模型。我们知道，一个socket连接只有在特点时候才会发生数据传输IO操作，大部分时间这个“数据通道”是空闲的，但还是占用着线程。NIO作出的改进就是“一个请求一个线程”，在连接到服务端的众多socket中，只有需要进行IO操作的才能获取服务端的处理线程进行IO。这样就不会因为线程不够用而限制了socket的接入。客户端的socket连接到服务端时，就会在事件分离器注册一个 IO请求事件 和 IO 事件处理器。在该连接发生IO请求时，IO事件处理器就会启动一个线程来处理这个IO请求，不断尝试获取系统的IO的使用权限，一旦成功（即：可以进行IO），则通知这个socket进行IO数据传输。</p>
+<p>​     三：异步阻塞IO（AIO）</p>
+<p>​          NIO是同步的IO，是因为程序需要IO操作时，必须获得了IO权限后亲自进行IO操作才能进行下一步操作。AIO是对NIO的改进（所以AIO又叫NIO.2），它是基于Proactor模型的。每个socket连接在事件分离器注册 IO完成事件 和 IO完成事件处理器。程序需要进行IO时，向分离器发出IO请求并把所用的Buffer区域告知分离器，分离器通知操作系统进行IO操作，操作系统自己不断尝试获取IO权限并进行IO操作（数据保存在Buffer区），操作完成后通知分离器；分离器检测到 IO完成事件，则激活 IO完成事件处理器，处理器会通知程序说“IO已完成”，程序知道后就直接从Buffer区进行数据的读写。</p>
+<p>​          也就是说：<strong>AIO是发出IO请求后，由操作系统自己去获取IO权限并进行IO操作；NIO则是发出IO请求后，由线程不断尝试获取IO权限，获取到后通知应用程序自己进行IO操作。</strong></p>
+<p>​    netty是用来实现非阻塞IO的一个框架，这个作为拓展点，感兴趣可以去了解一下。我在面试阿里的时候被问到过，其他公司还没问过。    </p>
+<h2 id="9-HTTP中get和post的区别"><a href="#9-HTTP中get和post的区别" class="headerlink" title="9.HTTP中get和post的区别"></a>9.HTTP中get和post的区别</h2><p>Get和Post在面试中一般都会问到，一般的区别： </p>
+<ol>
+<li>post更安全（不会作为url的一部分，不会被缓存、保存在服务器日志、以及浏览器浏览记录中）</li>
+<li>post发送的数据更大（get有url长度限制） </li>
+<li>post能发送更多的数据类型（get只能发送ASCII字符） </li>
+<li>post比get慢 </li>
+<li>post用于修改和写入数据，get一般用于搜索排序和筛选之类的操作（淘宝，支付宝的搜索查询都是get提交），目的是资源的获取，读取数据 </li>
+</ol>
+</div></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">董兰天</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://github.com/DongLantian/DongLantian.github.io/tree/master/2019/04/25/计算机网络/">https://github.com/DongLantian/DongLantian.github.io/tree/master/2019/04/25/计算机网络/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://github.com/DongLantian/DongLantian.github.io/tree/master">董兰天的江湖路</a>！</span></div></div><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/计算机网络/">计算机网络</a></div><nav id="pagination"><div class="next-post pull-right"><a href="/2019/04/25/数据结构与算法/"><span>数据结构与算法</span><i class="fa fa-chevron-right"></i></a></div></nav></div></div><footer><div class="layout" id="footer"><div class="copyright">&copy;2019 By 董兰天</div><div class="framework-info"><span>驱动 - </span><a href="http://hexo.io"><span>Hexo</span></a><span class="footer-separator">|</span><span>主题 - </span><a href="https://github.com/Molunerfinn/hexo-theme-melody"><span>Melody</span></a></div><div class="footer_custom_text">董兰天的博客</div><div class="busuanzi"><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><span id="busuanzi_container_page_pv"><i class="fa fa-file-o"></i><span id="busuanzi_value_page_pv"></span><span></span></span></div></div></footer><i class="fa fa-arrow-up" id="go-up" aria-hidden="true"></i><script src="https://cdn.jsdelivr.net/npm/animejs@latest/anime.min.js"></script><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@latest/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-ui-pack@latest/velocity.ui.min.js"></script><script src="/js/utils.js?version=1.6.1"></script><script src="/js/fancybox.js?version=1.6.1"></script><script src="/js/sidebar.js?version=1.6.1"></script><script src="/js/copy.js?version=1.6.1"></script><script src="/js/fireworks.js?version=1.6.1"></script><script src="/js/transition.js?version=1.6.1"></script><script src="/js/scroll.js?version=1.6.1"></script><script src="/js/head.js?version=1.6.1"></script><script>if(/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
+  $('#nav').addClass('is-mobile')
+  $('footer').addClass('is-mobile')
+}</script></body></html>

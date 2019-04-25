@@ -1,0 +1,160 @@
+<!DOCTYPE html><html lang="zh-Hans"><head><meta name="generator" content="Hexo 3.8.0"><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta name="description" content="操作系统"><meta name="keywords" content="操作系统"><meta name="author" content="董兰天"><meta name="copyright" content="董兰天"><title>操作系统 | 董兰天的江湖路</title><link rel="shortcut icon" href="/melody-favicon.ico"><link rel="stylesheet" href="/css/index.css?version=1.6.1"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@latest/css/font-awesome.min.css?version=1.6.1"><link rel="dns-prefetch" href="https://cdn.staticfile.org"><link rel="dns-prefetch" href="https://cdn.bootcss.com"><link rel="dns-prefetch" href="https://creativecommons.org"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  }
+} </script></head><body><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true"></i><div id="sidebar"><div class="toggle-sidebar-info text-center"><span data-toggle="切换文章详情">切换站点概览</span><hr></div><div class="sidebar-toc"><div class="sidebar-toc__title">目录</div><div class="sidebar-toc__progress"><span class="progress-notice">你已经读了</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar"></div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-进程和线程"><span class="toc-number">1.</span> <span class="toc-text">1. 进程和线程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-死锁"><span class="toc-number">2.</span> <span class="toc-text">2. 死锁</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-分页和分段"><span class="toc-number">3.</span> <span class="toc-text">3. 分页和分段</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-虚拟内存"><span class="toc-number">4.</span> <span class="toc-text">4.虚拟内存</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-页面置换算法"><span class="toc-number">5.</span> <span class="toc-text">5. 页面置换算法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-Linux常用命令"><span class="toc-number">6.</span> <span class="toc-text">6.Linux常用命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-IO模型"><span class="toc-number">7.</span> <span class="toc-text">7.IO模型</span></a></li></ol></div></div><div class="author-info hide"><div class="author-info__avatar text-center"><img src="/img/avatar.png"></div><div class="author-info__name text-center">董兰天</div><div class="author-info__description text-center"></div><hr><div class="author-info-articles"><a class="author-info-articles__archives article-meta" href="/archives"><span class="pull-left">文章</span><span class="pull-right">10</span></a><a class="author-info-articles__tags article-meta" href="/tags"><span class="pull-left">标签</span><span class="pull-right">13</span></a><a class="author-info-articles__categories article-meta" href="/categories"><span class="pull-left">分类</span><span class="pull-right">2</span></a></div></div></div><div id="content-outer"><div class="no-bg" id="top-container"><div id="page-header"><span class="pull-left"> <a id="site-name" href="/">董兰天的江湖路</a></span><i class="fa fa-bars toggle-menu pull-right" aria-hidden="true"></i><span class="pull-right menus"><a class="site-page" href="/">我的主页</a><a class="site-page" href="/categories">文章分类</a><a class="site-page" href="/archives">时间轴</a><a class="site-page" href="/tags">好多标签呀</a></span></div><div id="post-info"><div id="post-title">操作系统</div><div id="post-meta"><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2019-04-25</time><span class="post-meta__separator">|</span><i class="fa fa-inbox post-meta__icon" aria-hidden="true"></i><a class="post-meta__categories" href="/categories/面试基础知识总结/">面试基础知识总结</a></div></div></div><div class="layout" id="content-inner"><article id="post"><div class="article-container" id="post-content"><h2 id="1-进程和线程"><a href="#1-进程和线程" class="headerlink" title="1. 进程和线程"></a>1. 进程和线程</h2><ul>
+<li>进程的几种状态</li>
+</ul>
+<p><img src="https://img-blog.csdn.net/20160906192211991" alt="è¿éåå¾çæè¿°"></p>
+<ul>
+<li><p><strong>进程调度算法</strong></p>
+<ul>
+<li><p>一、先来先服务</p>
+<p>先来先去服务调度算法是一种最简单的调度算法，也称为先进先出或严格排队方案。当每个进程就绪后，它加入就绪队列。当前正运行的进程停止执行，选择在就绪队列中存在时间最长的进程运行。该算法既可以用于作业调度，也可以用于进程调度。先来先去服务比较适合于长作业（进程），而不利于短作业（进程）。</p>
+</li>
+<li><p>二、时间片轮转法</p>
+<p>轮转法是基于适中的抢占策略的，以一个周期性间隔产生时钟中断，当中断发生后，当前正在运行的进程被置于就绪队列中，然后基于先来先去服务策略选择下一个就绪作业的运行。这种技术也称为时间片，因为每个进程再被抢占之前都给定一片时间。</p>
+</li>
+<li><p>三、短作业优先</p>
+<p>最短进程优先是一个非抢占策略，他的原则是下一次选择预计处理时间最短的进程，因此短进程将会越过长作业，跳至队列头。该算法即可用于作业调度，也可用于进程调度。但是他对长作业不利，不能保证紧迫性作业（进程）被及时处理，作业的长短只是被估算出来的。</p>
+</li>
+<li><p>四、最短剩余时间优先</p>
+<p>最短剩余时间是针对最短进程优先增加了抢占机制的版本。在这种情况下，进程调度总是选择预期剩余时间最短的进程。当一个进程加入到就绪队列时，他可能比当前运行的进程具有更短的剩余时间，因此只要新进程就绪，调度程序就能可能抢占当前正在运行的进程。像最短进程优先一样，调度程序正在执行选择函数是必须有关于处理时间的估计，并且存在长进程饥饿的危险。</p>
+</li>
+<li><p>五、最高响应比优先</p>
+<p>根据比率：R=(w+s)/s （R为响应比，w为等待处理的时间，s为预计的服务时间）</p>
+<p>　　如果该进程被立即调用，则R值等于归一化周转时间（周转时间和服务时间的比率）。R最小值为1.0，只有第一个进入系统的进程才能达到该值。调度规则为：当前进程完成或被阻塞时，选择R值最大的就绪进程，它说明了进程的年龄。当偏向短作业时，长进程由于得不到服务，等待时间不断增加，从而增加比值，最终在竞争中赢了短进程。</p>
+<p>　　和最短进程优先、最短剩余时间优先一样，使用最高响应比策略需要估计预计服务时间。</p>
+</li>
+<li><p>六、多级反馈队列调度算法</p>
+<p>多级反馈队列算法，不必事先知道各种进程所需要执行的时间，他是当前被公认的一种较好的进程调度算法。其实施过程如下：</p>
+<p>　　1)设置多个就绪队列，并为各个队列赋予不同的优先级。在优先权越高的队列中，为每个进程所规定的执行时间片就越小。</p>
+<p>　　2)当一个新进程进入内存后，首先放入第一队列的末尾，按照先来先去原则排队等候调度。如果他能在一个时间片中完成，便可撤离；如果未完成，就转入第二队列的末尾，同样等待调度…..如此下去，当一个长作业（进程）从第一队列依次将到第n队列（最后队列）后，便按第n队列时间片轮转运行。</p>
+<p>　　3)仅当第一队列空闲的时候，调度程序才调度第二队列中的进程运行；仅当第1到（i-1）队列空时，才会调度第i队列中的进程运行，并执行相应的时间片轮转。</p>
+<p>　　4)如果处理机正在处理第i队列中某进程，又有新进程进入优先权较高的队列，则此新队列抢占正在运行的处理机，并把正在运行的进程放在第i队列的队尾。</p>
+</li>
+</ul>
+</li>
+<li><p><strong>进程和线程的区别是什么</strong>？</p>
+<p>​    </p>
+<ul>
+<li><p>定义</p>
+<p>进程：进程是程序在一个数据集合上的运行过程，是系统进行资源分配和调度的一个独立单位。</p>
+<p>线程：线程是进程内一个相对独立的、可调度的执行单元。线程自己基本上不拥有资源，只拥有一点在运行时必不可少的资源（如程序计数器、一组寄存器和栈），但它可以与同属一个进程的其他线程共享进程拥有的全部资源。</p>
+</li>
+<li><p>区别</p>
+<ol>
+<li>==进程是资源分配的基本单位==，也是独立运行的基本单位。==线程是独立调度的基本单位==。一个进程可以包含多个线程。可以把线程看成是轻量级的进程。</li>
+<li>线程只有一点必不可少的系统资源，线程可以访问其隶属进程的系统资源。</li>
+<li>进程创建撤销时，系统要为之分配回收资源，开销大。进程切换时，需保存当前进程的CPU环境。而线程切换时，只需保存和设置少量寄存器内容，开销小。另外，同一进程内的多个线程共享进程的地址空间，因此多线程之间的同步与通信易于实现。 </li>
+</ol>
+</li>
+</ul>
+</li>
+<li><p><strong>进程间通信的方式有什么</strong>？</p>
+<ol>
+<li>==管道==( pipe )：<br>管道是一种半双工的通信方式，数据只能单向流动，而且只能在具有亲缘关系的进程间使用。进程的亲缘关系通常是指父子进程关系。<br>有名管道 (namedpipe) ：<br>有名管道也是半双工的通信方式，但是它允许无亲缘关系进程间的通信。</li>
+<li>==信号量==(semophore ) ：<br>信号量是一个计数器，可以用来控制多个进程对共享资源的访问。它常作为一种锁机制，防止某进程正在访问共享资源时，其他进程也访问该资源。因此，主要作为进程间以及同一进程内不同线程之间的同步手段。</li>
+<li>消息队列( messagequeue ) ：<br>消息队列是由消息的链表，存放在内核中并由消息队列标识符标识。消息队列克服了信号传递信息少、管道只能承载无格式字节流以及缓冲区大小受限等缺点。</li>
+<li>信号 (sinal ) ：<br>信号是一种比较复杂的通信方式，用于通知接收进程某个事件已经发生。</li>
+<li>==共享内存==(shared memory ) ：<br>共享内存就是映射一段能被其他进程所访问的内存，这段共享内存由一个进程创建，但多个进程都可以访问。共享内存是最快的 IPC 方式，它是针对其他进程间通信方式运行效率低而专门设计的。它往往与其他通信机制，如信号两，配合使用，来实现进程间的同步和通信。</li>
+<li>==套接字==(socket ) ：<br>套接口也是一种进程间通信机制，与其他通信机制不同的是，它可用于不同设备及其间的进程通信。</li>
+</ol>
+</li>
+<li><p><strong>线程间通信的方式有什么</strong>？</p>
+<ol>
+<li><p>锁机制：包括互斥锁、条件变量、读写锁 </p>
+<p>互斥锁提供了以排他方式防止数据结构被并发修改的方法。</p>
+<p>读写锁允许多个线程同时读共享数据，而对写操作是互斥的。</p>
+<p>条件变量可以以原子的方式阻塞进程，直到某个特定条件为真为止。对条件的测试是在互斥锁的保护下进行的。条件变量始终与互斥锁一起使用。</p>
+</li>
+<li><p>信号量(Semaphore)：包括无名线程信号量和命名线程信号量 </p>
+</li>
+<li><p>信号(Signal)：类似进程间的信号处理​      </p>
+</li>
+</ol>
+</li>
+</ul>
+<h2 id="2-死锁"><a href="#2-死锁" class="headerlink" title="2. 死锁"></a>2. 死锁</h2><ul>
+<li><p>定义</p>
+<p>进程间因相互等待对方独占资源而引起的一种僵持状态。</p>
+</li>
+<li><p>死锁产生的原因</p>
+<p>系统拥有的资源数量不足、资源分配策略不当、进程对资源使用要求、并发进程推进顺序不当</p>
+</li>
+<li><p>必要条件</p>
+<p>（1）互斥条件：一个资源每次只能被一个进程使用。</p>
+<p>（2） 请求与保持条件：一个进程因请求资源而阻塞时，对已获得的资源保持不放。</p>
+<p>（3） 不剥夺条件:进程已获得的资源，在末使用完之前，不能强行剥夺。</p>
+<p>（4） 循环等待条件:若干进程之间形成一种头尾相接的循环等待资源关系。</p>
+</li>
+<li><p>处理死锁</p>
+<ol>
+<li>预防死锁：破坏死锁产生的四个必要条件之一</li>
+<li>避免死锁：使系统始终处于安全状态（银行家算法）</li>
+<li>死锁的检测与解除 </li>
+</ol>
+</li>
+</ul>
+<h2 id="3-分页和分段"><a href="#3-分页和分段" class="headerlink" title="3. 分页和分段"></a>3. 分页和分段</h2><ul>
+<li>页是信息的物理单位，分页是为实现离散分配方式，以减少内存的碎片，提高内存的利用率。或者说，分页仅仅是出于系统管理的需要，而不是用户的需要。段是信息的逻辑单位，它含有一组其意义相对完整的信息。分段的目的是为了能更好的满足用户的需要。</li>
+<li>页的大小固定且由系统决定，把逻辑地址划分为页号和页内地址两部分，是由机器硬件实现的，因而一个系统只能有一种大小的页面。段的长度不固定，决定于用户所编写的程序，通常由编译系统在对源程序进行编译时根据信息的性质来划分。</li>
+<li>分页系统中作业的地址空间是一维的，即单一的线性地址空间，程序员只需利用一个值来表示一个地址。分段系统中作业的地址空间是二维的，程序员在标识一个地方时，既要给出段名，又要给出段内位移。</li>
+</ul>
+<h2 id="4-虚拟内存"><a href="#4-虚拟内存" class="headerlink" title="4.虚拟内存"></a>4.虚拟内存</h2><ul>
+<li><p><strong>定义</strong></p>
+<p>基于局部性原理，在程序装入时，可以将程序的一部分装入内存，而将其余部分留在外存，就可以启动程序执行。在程序执行过程中，当所访问的信息不在内存时，由操作系统将所需要的部分调入内存,然后继续执行程序。另一方面，操作系统将内存中暂时不使用的内容换出到外存上，从而腾出空间存放将要调入内存的信息。这样，系统好像为用户提供了一个比实际内存大得多的存储器，称为虚拟存储器。</p>
+</li>
+<li><p><strong>虚拟内存技术的实现</strong></p>
+<p>请求分页式</p>
+<p>请求段页式</p>
+<p>页面替换算法：FIFO（先进先出）、LRU（最近最少使用）、OPT（最佳页面替换）、时钟页面替换</p>
+</li>
+</ul>
+<h2 id="5-页面置换算法"><a href="#5-页面置换算法" class="headerlink" title="5. 页面置换算法"></a>5. 页面置换算法</h2><p>​        基于程序的局部性原理，进程运行时只有一部分装入内存，当要访问的页面不在内存中时，需要选取相应的算法进行页面置换。</p>
+<ol>
+<li><p>最佳置换算法OPT（理想型不可能实现）</p>
+<p>每次都淘汰以后不会使用或最迟使用的。</p>
+</li>
+<li><p>先进先出FIFO</p>
+<p>维持一个队列，当页面命中时无变化，未命中时插入队尾淘汰队首页面。</p>
+</li>
+<li><p>LRU（leasted recently used）</p>
+<p>可使用基于链表的队列实现，命中页面时将此页面移至队列尾部，未命中时插入尾部淘汰队列首部页面。</p>
+</li>
+<li><p>LFU（leasted frenquency used）</p>
+<p>为每个页面设置一个计数器，命中加一，每次淘汰次数最少的。</p>
+</li>
+<li><p>时钟置换算法</p>
+<p>CLOCK维护一个内存中所有页面的循环链表，页面被访问时访问位置为1，缺页时指针从上次淘汰页面的下一个开始移动找访问位为0的页面淘汰，遍历到的页面的访问位为1时就清零。若遍历一遍未找到合适的就继续遍历。</p>
+</li>
+</ol>
+<ul>
+<li><p>缓存</p>
+<p>凡是位于速度相差较大的两种硬件之间，用于协调两者数据传输速度差异的结构，均可称之为缓存（Cache）。</p>
+</li>
+</ul>
+<h2 id="6-Linux常用命令"><a href="#6-Linux常用命令" class="headerlink" title="6.Linux常用命令"></a>6.Linux常用命令</h2><p>系统管理命令：<a href="https://www.linuxidc.com/Linux/2018-09/153919.htm" target="_blank" rel="noopener">https://www.linuxidc.com/Linux/2018-09/153919.htm</a></p>
+<p>网络命令：<a href="https://www.cnblogs.com/chuijingjing/articles/8527996.html" target="_blank" rel="noopener">https://www.cnblogs.com/chuijingjing/articles/8527996.html</a></p>
+<ul>
+<li><p>查看内存使用情况：free、top</p>
+</li>
+<li><p>查看CPU使用率：top</p>
+</li>
+<li><p>端口占用：lsof -i:端口号、netstat -tunlp |grep 端口号</p>
+</li>
+<li><p>查找文件：find / -size -1000k 　　#查找出小于1000KB的文件</p>
+<p>​                  find /etc -name ‘<em>srm</em>‘　  #表示在/etc目录下查找文件名中含有字符串‘srm’的文件</p>
+<p>​          grep ‘test’ d*　　           #显示所有以d开头的文件中包含 test的行</p>
+</li>
+</ul>
+<h2 id="7-IO模型"><a href="#7-IO模型" class="headerlink" title="7.IO模型"></a>7.IO模型</h2><p><a href="https://blog.csdn.net/wsx199397/article/details/38533239" target="_blank" rel="noopener">https://blog.csdn.net/wsx199397/article/details/38533239</a></p>
+</div></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">董兰天</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://github.com/DongLantian/DongLantian.github.io/tree/master/2019/04/25/操作系统/">https://github.com/DongLantian/DongLantian.github.io/tree/master/2019/04/25/操作系统/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://github.com/DongLantian/DongLantian.github.io/tree/master">董兰天的江湖路</a>！</span></div></div><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/操作系统/">操作系统</a></div><nav id="pagination"><div class="prev-post pull-left"><a href="/2019/04/25/数据库/"><i class="fa fa-chevron-left">  </i><span>数据库</span></a></div><div class="next-post pull-right"><a href="/2019/04/25/WebService/"><span>WebService</span><i class="fa fa-chevron-right"></i></a></div></nav></div></div><footer><div class="layout" id="footer"><div class="copyright">&copy;2019 By 董兰天</div><div class="framework-info"><span>驱动 - </span><a href="http://hexo.io"><span>Hexo</span></a><span class="footer-separator">|</span><span>主题 - </span><a href="https://github.com/Molunerfinn/hexo-theme-melody"><span>Melody</span></a></div><div class="footer_custom_text">董兰天的博客</div><div class="busuanzi"><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><span id="busuanzi_container_page_pv"><i class="fa fa-file-o"></i><span id="busuanzi_value_page_pv"></span><span></span></span></div></div></footer><i class="fa fa-arrow-up" id="go-up" aria-hidden="true"></i><script src="https://cdn.jsdelivr.net/npm/animejs@latest/anime.min.js"></script><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@latest/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-ui-pack@latest/velocity.ui.min.js"></script><script src="/js/utils.js?version=1.6.1"></script><script src="/js/fancybox.js?version=1.6.1"></script><script src="/js/sidebar.js?version=1.6.1"></script><script src="/js/copy.js?version=1.6.1"></script><script src="/js/fireworks.js?version=1.6.1"></script><script src="/js/transition.js?version=1.6.1"></script><script src="/js/scroll.js?version=1.6.1"></script><script src="/js/head.js?version=1.6.1"></script><script>if(/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
+  $('#nav').addClass('is-mobile')
+  $('footer').addClass('is-mobile')
+}</script></body></html>
