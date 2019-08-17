@@ -7,9 +7,8 @@
     error: '复制错误',
     noSupport: '浏览器不支持'
   }
-} </script></head><body><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true"></i><div id="sidebar"><div class="toggle-sidebar-info text-center"><span data-toggle="切换文章详情">切换站点概览</span><hr></div><div class="sidebar-toc"><div class="sidebar-toc__title">目录</div><div class="sidebar-toc__progress"><span class="progress-notice">你已经读了</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar"></div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#判断对象是否存活"><span class="toc-number">1.</span> <span class="toc-text">判断对象是否存活</span></a></li></ol><li class="toc-item toc-level-2"><a class="toc-link" href="#4-Java内存模型"><span class="toc-number"></span> <span class="toc-text">4.Java内存模型</span></a></li></div></div><div class="author-info hide"><div class="author-info__avatar text-center"><img src="/img/avatar.png"></div><div class="author-info__name text-center">董兰天</div><div class="author-info__description text-center"></div><hr><div class="author-info-articles"><a class="author-info-articles__archives article-meta" href="/archives"><span class="pull-left">文章</span><span class="pull-right">10</span></a><a class="author-info-articles__tags article-meta" href="/tags"><span class="pull-left">标签</span><span class="pull-right">13</span></a><a class="author-info-articles__categories article-meta" href="/categories"><span class="pull-left">分类</span><span class="pull-right">2</span></a></div></div></div><div id="content-outer"><div class="no-bg" id="top-container"><div id="page-header"><span class="pull-left"> <a id="site-name" href="/">董兰天的江湖路</a></span><i class="fa fa-bars toggle-menu pull-right" aria-hidden="true"></i><span class="pull-right menus"><a class="site-page" href="/">我的主页</a><a class="site-page" href="/categories">文章分类</a><a class="site-page" href="/archives">时间轴</a><a class="site-page" href="/tags">好多标签呀</a></span></div><div id="post-info"><div id="post-title">Java虚拟机</div><div id="post-meta"><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2019-04-25</time><span class="post-meta__separator">|</span><i class="fa fa-inbox post-meta__icon" aria-hidden="true"></i><a class="post-meta__categories" href="/categories/面试基础知识总结/">面试基础知识总结</a></div></div></div><div class="layout" id="content-inner"><article id="post"><div class="article-container" id="post-content"><p><a href="http://www.importnew.com/23792.html" target="_blank" rel="noopener">http://www.importnew.com/23792.html</a></p>
-<p>##1.内存划分</p>
-<p><img src="images\281630330728961.jpg" alt></p>
+} </script></head><body><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true"></i><div id="sidebar"><div class="toggle-sidebar-info text-center"><span data-toggle="切换文章详情">切换站点概览</span><hr></div><div class="sidebar-toc"><div class="sidebar-toc__title">目录</div><div class="sidebar-toc__progress"><span class="progress-notice">你已经读了</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar"></div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-内存划分"><span class="toc-number">1.</span> <span class="toc-text">1.内存划分</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-垃圾回收"><span class="toc-number">2.</span> <span class="toc-text">2.垃圾回收</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#内存分配与回收策略"><span class="toc-number">2.1.</span> <span class="toc-text">内存分配与回收策略</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#判断对象是否存活"><span class="toc-number">2.2.</span> <span class="toc-text">判断对象是否存活</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#垃圾回收算法"><span class="toc-number">2.3.</span> <span class="toc-text">垃圾回收算法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#垃圾回收器"><span class="toc-number">2.4.</span> <span class="toc-text">垃圾回收器</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-类加载"><span class="toc-number">3.</span> <span class="toc-text">3.类加载</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-Java内存模型"><span class="toc-number">4.</span> <span class="toc-text">4.Java内存模型</span></a></li></ol></div></div><div class="author-info hide"><div class="author-info__avatar text-center"><img src="/img/avatar.png"></div><div class="author-info__name text-center">董兰天</div><div class="author-info__description text-center"></div><hr><div class="author-info-articles"><a class="author-info-articles__archives article-meta" href="/archives"><span class="pull-left">文章</span><span class="pull-right">11</span></a><a class="author-info-articles__tags article-meta" href="/tags"><span class="pull-left">标签</span><span class="pull-right">14</span></a><a class="author-info-articles__categories article-meta" href="/categories"><span class="pull-left">分类</span><span class="pull-right">3</span></a></div></div></div><div id="content-outer"><div class="no-bg" id="top-container"><div id="page-header"><span class="pull-left"> <a id="site-name" href="/">董兰天的江湖路</a></span><i class="fa fa-bars toggle-menu pull-right" aria-hidden="true"></i><span class="pull-right menus"><a class="site-page" href="/">我的主页</a><a class="site-page" href="/categories">文章分类</a><a class="site-page" href="/archives">时间轴</a><a class="site-page" href="/tags">好多标签呀</a></span></div><div id="post-info"><div id="post-title">Java虚拟机</div><div id="post-meta"><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2019-04-25</time><span class="post-meta__separator">|</span><i class="fa fa-inbox post-meta__icon" aria-hidden="true"></i><a class="post-meta__categories" href="/categories/面试基础知识总结/">面试基础知识总结</a></div></div></div><div class="layout" id="content-inner"><article id="post"><div class="article-container" id="post-content"><p><a href="http://www.importnew.com/23792.html" target="_blank" rel="noopener">http://www.importnew.com/23792.html</a></p>
+<h2 id="1-内存划分"><a href="#1-内存划分" class="headerlink" title="1.内存划分"></a>1.内存划分</h2><p><img src="images\281630330728961.jpg" alt></p>
 <p><img src="images\483385-20180109095500816-1282474974.png" alt></p>
 <ul>
 <li><p><strong>堆</strong></p>
@@ -29,10 +28,8 @@
 <p>每条线程都需要有一个独立的程序计数器，各条线程之间计数器互不影响。</p>
 </li>
 </ul>
-<p>##2.垃圾回收</p>
-<p>垃圾回收主要就是针对==堆==区来进行的，堆区又会被划分为新生代老年代。</p>
-<p>###内存分配与回收策略</p>
-<ul>
+<h2 id="2-垃圾回收"><a href="#2-垃圾回收" class="headerlink" title="2.垃圾回收"></a>2.垃圾回收</h2><p>垃圾回收主要就是针对==堆==区来进行的，堆区又会被划分为新生代老年代。</p>
+<h3 id="内存分配与回收策略"><a href="#内存分配与回收策略" class="headerlink" title="内存分配与回收策略"></a>内存分配与回收策略</h3><ul>
 <li><strong>对象优先分配在Eden区</strong>。如果Eden区没有足够的空间时，虚拟机执行一次Minor GC。</li>
 <li><strong>大对象直接进入老年代</strong>（大对象是指需要大量连续内存空间的对象）。这样做的目的是避免在Eden区和两个Survivor区之间发生大量的内存拷贝（新生代采用复制算法收集内存）。</li>
 <li><strong>长期存活的对象进入老年代</strong>。虚拟机为每个对象定义了一个年龄计数器，如果对象经过了1次Minor GC那么对象会进入Survivor区，之后每经过一次Minor GC那么对象的年龄加1，知道达到阀值对象进入老年区。</li>
@@ -47,8 +44,7 @@
 <p><strong>GC Roots:</strong>1.虚拟机栈中引用的对象 2.本地方法栈中native方法引用的对象 3.方法区中静态变量 4.方法区中常量</p>
 </li>
 </ul>
-<p>###垃圾回收算法</p>
-<p>GC最基础的算法有三种：标记 -清除算法、复制算法、标记-整理算法，我们常用的垃圾回收器一般都采用分代收集算法。</p>
+<h3 id="垃圾回收算法"><a href="#垃圾回收算法" class="headerlink" title="垃圾回收算法"></a>垃圾回收算法</h3><p>GC最基础的算法有三种：标记 -清除算法、复制算法、标记-整理算法，我们常用的垃圾回收器一般都采用分代收集算法。</p>
 <ol>
 <li><p><strong>标记 -清除算法</strong></p>
 <p>算法分为“标记”和“清除”两个阶段：首先标记出所有需要回收的对象，在标记完成后统一回收掉所有被标记的对象。</p>
@@ -63,8 +59,7 @@
 <p>把Java堆分为新生代和老年代，这样就可以根据各个年代的特点采用最适当的收集算法。</p>
 </li>
 </ol>
-<p>###垃圾回收器</p>
-<ol>
+<h3 id="垃圾回收器"><a href="#垃圾回收器" class="headerlink" title="垃圾回收器"></a>垃圾回收器</h3><ol>
 <li><p>Serial收集器</p>
 </li>
 <li><p>ParNew收集器</p>
@@ -126,8 +121,7 @@
 </ol>
 </li>
 </ul>
-<p>##3.类加载</p>
-<ul>
+<h2 id="3-类加载"><a href="#3-类加载" class="headerlink" title="3.类加载"></a>3.类加载</h2><ul>
 <li><p>类加载机制</p>
 <p>类加载过程：</p>
 </li>
